@@ -57,42 +57,42 @@ export function FlightFormPage() {
     },[])
 
     return ( 
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-lg mx-auto">
             <form onSubmit={onSubmit}>
                 <input 
                 type="text" 
                 placeholder="Aircraft" 
-                className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
+                className="w-full bg-blue py-2 rounded-md shadow-md"
                 {...register("aircraft", {required:true})} />
                 {errors.aircraft && <span>This field is required</span>}
                 
                 <input type="text" placeholder="Origin" 
-                className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
+                className="w-full bg-blue py-2 rounded-md shadow-md"
                 {...register("origin", {required:true})}/>
                 {errors.origin && <span>This field is required</span>}
 
                 <input type="text" placeholder="Destination" 
-                className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
+                className="w-full bg-blue py-2 rounded-md shadow-md"
                 {...register("destin", {required:true})}/>
                 {errors.destin && <span>This field is required</span>}
                 
                 <input type="text" placeholder="ETD" 
-                className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
+                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
                 {...register("etd", {required:true})}/>
                 {errors.etd && <span>This field is required</span>}
 
                 <input type="text" placeholder="ETA" 
-                className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
+                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
                 {...register("eta", {required:true})}/>
                 {errors.eta && <span>This field is required</span>}
 
                 <input type="text" placeholder="Programs Onboard" 
-                className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
+                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
                 {...register("program_onb", {required:true})}/>
                 {errors.program_onb && <span>This field is required</span>}
 
                 <input type="text" placeholder="Status" 
-                className="bg-zinc-700 p-3 rounded-lg block w-full mb-3"
+                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
                 {...register("status", {required:true})}/>
                 {errors.status && <span>This field is required</span>}
 

@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <BrowserRouter>
-    <div className="container">
+    <div className="relative block items-center">
     <Navigation />
       <Routes>
         <Route path="/" element={ <Navigate to="/flights/" /> } />

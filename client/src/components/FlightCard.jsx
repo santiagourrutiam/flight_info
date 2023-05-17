@@ -9,7 +9,7 @@ export function FlightCard({flight}) {
                     navigate(`/flight/${flight.id}`)
                 }}
             >
-                <h1 className="text-3xl font-bold">Aircraft: {flight.aircraft}</h1>
+                <h1 className="font-bold text-3xl md:text-4xl lg:text-3xl font-heading text-white">Aircraft: {flight.aircraft}</h1>
                 <p className="text-slate-400">Origin: {flight.origin}</p>
                 <p className="text-slate-400">Destination: {flight.destin}</p>
                 <p className="text-slate-400">ETD: {flight.etd}</p>
