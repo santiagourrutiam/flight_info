@@ -13,7 +13,7 @@ export function FlightsList() {
         loadFlights();
 }, []);
 
-    return ( <div className='grid grid-cols-3 gap-3' >
+    return ( <div className='flex space-x-4 p-6 font-extralight' >
         {flights.map((flight) => (
             <FlightCard key={flight.id} flight={flight} />
         ))}

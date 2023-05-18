@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <BrowserRouter>
-    <div className="relative block items-center">
+    <div className="bg-yellow1 flex-row-reverse">
     <Navigation />
       <Routes>
         <Route path="/" element={ <Navigate to="/flights/" /> } />

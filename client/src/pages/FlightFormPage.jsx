@@ -57,47 +57,47 @@ export function FlightFormPage() {
     },[])
 
     return (
-        <div className="bg-secondary text-primary mx-auto px-4">
+        <div className="flex space-x-2 space-y-4 py-4 font-extralight">
             <form onSubmit={onSubmit}>
                 <input 
                 type="text" 
                 placeholder="Aircraft" 
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="bg-white text-primary p-4"
                 {...register("aircraft", {required:true})} />
                 {errors.aircraft && <span>This field is required</span>}
                 
                 <input type="text" placeholder="Origin" 
-                className="w-1/2 bg-blue-100 px-4 rounded-md"
+                className="bg-white text-primary p-4"
                 {...register("origin", {required:true})}/>
                 {errors.origin && <span>This field is required</span>}
 
                 <input type="text" placeholder="Destination" 
-                className="w-1/2 bg-blue-100 px-4 rounded-md"
+                className="bg-white text-primary p-4"
                 {...register("destin", {required:true})}/>
                 {errors.destin && <span>This field is required</span>}
                 
                 <input type="text" placeholder="ETD" 
-                className="w-1/2 bg-bluw-full bg-blue-100 px-4 rounded-md"
+                className="bg-white text-primary p-4"
                 {...register("etd", {required:true})}/>
                 {errors.etd && <span>This field is required</span>}
 
                 <input type="text" placeholder="ETA" 
-                className="w-1/2 bg-blue-100 px-4 rounded-md"
+                className="bg-white text-primary p-4"
                 {...register("eta", {required:true})}/>
                 {errors.eta && <span>This field is required</span>}
 
                 <input type="text" placeholder="Programs Onboard" 
-                className="w-1/2 bg-blue-100 px-4 rounded-md"
+                className="bg-white text-primary p-4"
                 {...register("program_onb", {required:true})}/>
                 {errors.program_onb && <span>This field is required</span>}
 
                 <input type="text" placeholder="Status" 
-                className="w-1/2 bg-blue-100 px-4 rounded-md"
+                className="bg-white text-primary p-4"
                 {...register("status", {required:true})}/>
                 {errors.status && <span>This field is required</span>}
 
                 <button
-                    className="bg-blue-700 p-3 rounded-lg block w-full mt-3">Save</button>
+                    className="bg-blue-700 text-white p-3 rounded-lg block w-full mt-3">Save</button>
 
             </form>
             {params.id && (
@@ -105,7 +105,7 @@ export function FlightFormPage() {
                     className="flex justify-end">
                     
                     <button
-                    className="bg-red-500 p-3 rounded-lg w-48 mt-3"
+                    className="bg-yellow1 px-4 py-4 rounded-lg w-48 mt-3"
                     onClick={async () => {
                     const accepted = window.confirm ('Are you sure?')
                     if (accepted) {
