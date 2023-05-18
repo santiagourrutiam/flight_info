@@ -6,18 +6,10 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <BrowserRouter>
-    <div className="bg-yellow1 flex-row-reverse">
-    <Navigation />
-      <Routes>
-        <Route path="/" element={ <Navigate to="/flights/" /> } />
-        <Route path="/flights/" element={<FlightsPage/>}/>
-        <Route path="/flight-create/" element={<FlightFormPage/>}/>
-        <Route path="/flight/:id" element={<FlightFormPage/>}/>
-      </Routes>  
-      <Toaster />
+    <div className='flex'>
+      <div className='bg-primary h-screen p-5 pt-8'>Sidebar</div>
+      <div className='bg-yellow1'>Home</div>
     </div>
-    </BrowserRouter>
   )
 }
 export default App
