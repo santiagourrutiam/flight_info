@@ -56,48 +56,48 @@ export function FlightFormPage() {
         loadFlight();
     },[])
 
-    return ( 
-        <div className="max-w-lg mx-auto">
+    return (
+        <div className="bg-secondary text-primary mx-auto px-4">
             <form onSubmit={onSubmit}>
                 <input 
                 type="text" 
                 placeholder="Aircraft" 
-                className="w-full bg-blue py-2 rounded-md shadow-md"
+                className="block text-sm font-medium leading-6 text-gray-900"
                 {...register("aircraft", {required:true})} />
                 {errors.aircraft && <span>This field is required</span>}
                 
                 <input type="text" placeholder="Origin" 
-                className="w-full bg-blue py-2 rounded-md shadow-md"
+                className="w-1/2 bg-blue-100 px-4 rounded-md"
                 {...register("origin", {required:true})}/>
                 {errors.origin && <span>This field is required</span>}
 
                 <input type="text" placeholder="Destination" 
-                className="w-full bg-blue py-2 rounded-md shadow-md"
+                className="w-1/2 bg-blue-100 px-4 rounded-md"
                 {...register("destin", {required:true})}/>
                 {errors.destin && <span>This field is required</span>}
                 
                 <input type="text" placeholder="ETD" 
-                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
+                className="w-1/2 bg-bluw-full bg-blue-100 px-4 rounded-md"
                 {...register("etd", {required:true})}/>
                 {errors.etd && <span>This field is required</span>}
 
                 <input type="text" placeholder="ETA" 
-                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
+                className="w-1/2 bg-blue-100 px-4 rounded-md"
                 {...register("eta", {required:true})}/>
                 {errors.eta && <span>This field is required</span>}
 
                 <input type="text" placeholder="Programs Onboard" 
-                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
+                className="w-1/2 bg-blue-100 px-4 rounded-md"
                 {...register("program_onb", {required:true})}/>
                 {errors.program_onb && <span>This field is required</span>}
 
                 <input type="text" placeholder="Status" 
-                className="w-full bg-blue py-2 rounded-md shadow-md mb-3"
+                className="w-1/2 bg-blue-100 px-4 rounded-md"
                 {...register("status", {required:true})}/>
                 {errors.status && <span>This field is required</span>}
 
                 <button
-                    className="bg-indigo-700 p-3 rounded-lg block w-full mt-3">Save</button>
+                    className="bg-blue-700 p-3 rounded-lg block w-full mt-3">Save</button>
 
             </form>
             {params.id && (
