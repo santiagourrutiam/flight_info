@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useForm } from 'react-hook-form';
-import { createFlight, deleteFlight, updateFlight, getFlight } from '../api/flights.api';
+import { createDroneFlight, deleteDroneFlight, updateDroneFlight, getDroneFlight } from '../api/droneflights.api';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from "react-hot-toast";
 
-export function FlightFormPage() {
+export function DroneFlightFormPage() {
     const {
         register, 
         handleSubmit, 
@@ -16,8 +16,8 @@ export function FlightFormPage() {
 
     const onSubmit = handleSubmit(async data => {
         if (params.id) {
-           await updateFlight(params.id, data);
-           toast.success('Flight Updated',{
+           await updateDroneFlight(params.id, data);
+           toast.success('Drone Flight Updated',{
             position:"bottom-right",
             style: {
                 background: "#101010",
@@ -26,8 +26,8 @@ export function FlightFormPage() {
 
         })
         } else {
-            await createFlight(data);
-            toast.success('Flight Created',{
+            await createDroneFlight(data);
+            toast.success('Drone Flight Created',{
                 position:"bottom-right",
                 style: {
                     background: "#101010",
@@ -36,87 +36,79 @@ export function FlightFormPage() {
 
             })
         }
-        navigate('/flights');
+        navigate('/droneflights');
     });
 
     useEffect(() => {
-           async function loadFlight() {
+           async function loadDroneFlight() {
                 if (params.id) {
                 console.log('obteniendo datos');
-                const res = await getFlight(params.id);
-                setValue('aircraft', res.data.aircraft);
-                setValue('origin', res.data.origin);
-                setValue('destin', res.data.destin);
-                setValue('etd', res.data.etd);
-                setValue('eta', res.data.eta);
-                setValue('program_onb', res.data.program_onb);
-                setValue('status', res.data.status);
+                const res = await getDroneFlight(params.id);
+                setValue('pilot', res.data.pilot);
+                setValue('drone_model', res.data.drone_model);
+                setValue('location', res.data.location);
+                setValue('flight_duration', res.data.flight_duration);
+                setValue('weather', res.data.weather);
+                setValue('created', res.data.created);
+                setValue('crash_unexpected', res.data.crash_unexpected);
             }
         }
-        loadFlight();
+        loadDroneFlight();
     },[])
 
     return (
-        /* MAIN CONTAINER DIV FOR FLIGHT FORM PAGE*/
+        /* MAIN CONTAINER DIV FOR DRONE FLIGHT FORM PAGE*/
         <div className="flex bg-yellow1 p-6 justify-center w-500">
 
             <form onSubmit={onSubmit}>
                 <div className="flex h-20">
                     <input 
                     type="text" 
-                    placeholder="Aircraft" 
+                    placeholder="pilot" 
                     className="bg-white  font-light p-4"
-                    {...register("aircraft", {required:true})} />
-                    {errors.aircraft && <span>This field is required</span>}
+                    {...register("pilot", {required:true})} />
+                    {errors.pilot && <span>This field is required</span>}
                 </div>
                 
                 <div className="flex p-0">
-                    <input type="text" placeholder="Origin" 
+                    <input type="text" placeholder="drone model" 
                     className="bg-white  font-light p-4"
-                    {...register("origin", {required:true})}/>
-                    {errors.origin && <span>This field is required</span>}
+                    {...register("drone_model", {required:true})}/>
+                    {errors.drone_model && <span>This field is required</span>}
                 </div>
 
                 <div className="flex p-0">
-                    <input type="text" placeholder="Destination" 
+                    <input type="text" placeholder="location" 
                     className="bg-white  font-light p-4"
-                    {...register("destin", {required:true})}/>
-                    {errors.destin && <span>This field is required</span>}
-                </div>
-                
-                
-                <div className="flex p-0">
-                    <input type="text" placeholder="ETD" 
-                    className="bg-white  font-light p-4"
-                    {...register("etd", {required:true})}/>
-                    {errors.etd && <span>This field is required</span>}
+                    {...register("location", {required:true})}/>
+                    {errors.location && <span>This field is required</span>}
                 </div>
 
                 <div className="flex p-0">
-                    <input type="text" placeholder="ETA" 
+                    <input type="text" placeholder="flight_duration" 
                     className="bg-white  font-light p-4"
-                    {...register("eta", {required:true})}/>
-                    {errors.eta && <span>This field is required</span>}
+                    {...register("flight_duration", {required:true})}/>
+                    {errors.flight_duration && <span>This field is required</span>}
                 </div>
 
                 <div className="flex p-0">
-                    <input type="text" placeholder="Programs Onboard" 
-                    className="bg-white font-light p-4"
-                    {...register("program_onb", {required:true})}/>
-                    {errors.program_onb && <span>This field is required</span>}
+                    <input type="text" placeholder="weather" 
+                    className="bg-white font-lweatheright p-4"
+                    {...register("weather", {required:true})}/>
+                    {errors.weather && <span>This field is required</span>}
                 </div>
 
                 <div className="flex p-0">
-                    <input type="text" placeholder="Status" 
+                    <input type="text" placeholder="crash_unexpected" 
                     className="bg-white  font-light p-4"
-                    {...register("status", {required:true})}/>
+                    {...register("crash_unexpected", {required:true})}/>
                     {errors.status && <span>This field is required</span>}
                 </div>
 
                 <button
                     className="bg-blue-700 text-white p-2 rounded-lg block w-full mt-3">Save</button>
-
             </form>
+
             {params.id && (
                 <div
                     className="flex justify-end">
@@ -126,7 +118,7 @@ export function FlightFormPage() {
                     onClick={async () => {
                     const accepted = window.confirm ('Are you sure?')
                     if (accepted) {
-                        await deleteFlight(params.id)
+                        await deleteDroneFlight(params.id)
                         
                         toast.success('Flight Deleted',{
                             position:"bottom-right",
@@ -136,7 +128,7 @@ export function FlightFormPage() {
                             }
             
                         })
-                        navigate ('/flights')
+                        navigate ('/droneflights')
                     }
                 }}  
                 >

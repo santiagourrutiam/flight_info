@@ -13,11 +13,12 @@ export function FlightsList() {
         loadFlights();
 }, []);
 
-    return ( <div className='flex space-x-4 p-6 font-extralight' >
-        {flights.map((flight) => (
-            <FlightCard key={flight.id} flight={flight} />
-        ))}
-            
+    return ( 
+        /* MAIN CONTAINER TO DISPLAY ALL INDIVIDUAL FLIGHTCARDS */
+        <div className='flex justify-center flex-wrap gap-4' >
+            {flights.map((flight) => (
+                <FlightCard key={flight.id} flight={flight} />
+            ))}
         </div>
     );
 }
